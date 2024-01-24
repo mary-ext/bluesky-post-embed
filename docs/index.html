@@ -88,7 +88,7 @@
 			const update_theme = () => {
 				const is_dark = dark.matches;
 
-				for (const node of document.querySelectorAll < BlueskyPost > 'bluesky-post') {
+				for (const node of document.querySelectorAll('bluesky-post')) {
 					node.setAttribute('theme', !is_dark ? 'light' : 'dark');
 				}
 			};
