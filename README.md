@@ -1,4 +1,4 @@
-# <bluesky-post>
+# &lt;bluesky-post>
 
 A custom element for embedding Bluesky posts.
 
