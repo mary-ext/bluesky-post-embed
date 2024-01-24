@@ -1,0 +1,33 @@
+{
+	"type": "module",
+	"name": "bluesky-post-embed",
+	"description": "Custom element for embedding Bluesky posts",
+	"version": "0.1.0",
+	"author": "externdefs",
+	"license": "MIT",
+	"repository": "https://github.com/mary-ext/bluesky-post-embed",
+	"files": [
+		"dist/"
+	],
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"fmt": "prettier --cache --write .",
+		"prepublishOnly": "pnpm run build"
+	},
+	"main": "./dist/bluesky-post-embed.js",
+	"dependencies": {
+		"@externdefs/bluesky-client": "^0.3.11"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.23.7",
+		"@babel/plugin-syntax-typescript": "^7.23.3",
+		"@intrnl/jsx-to-string": "^0.1.5",
+		"@rollup/plugin-babel": "^6.0.4",
+		"prettier": "^3.2.4",
+		"prettier-plugin-css-order": "^2.0.1",
+		"typescript": "^5.3.3",
+		"vite": "^5.0.12",
+		"vite-plugin-dts": "^3.7.1"
+	}
+}

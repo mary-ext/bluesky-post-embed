@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Bluesky post embeds</title>
+		<script type="module" src="./src/index.ts"></script>
+	</head>
+	<body>
+		<h1>&lt;bluesky-post&gt;</h1>
+		<p>A custom element for embedding Bluesky posts.</p>
+		<p>See <a href="https://github.com/mary-ext/bluesky-post-embed">GitHub repository</a> for details.</p>
+
+		<bluesky-post src="https://bsky.app/profile/pfrazee.com/post/3kj2umze7zj2n" theme="light">
+			<blockquote class="bluesky-post-fallback">
+				<p dir="auto">angel mode</p>
+				&mdash; Paul Frazee 🦋 (@pfrazee.com)
+				<a href="https://bsky.app/profile/pfrazee.com/post/3kj2umze7zj2n">January 16, 2024</a>
+			</blockquote>
+		</bluesky-post>
+
+		<pre>
+&#60;bluesky-post src="https://bsky.app/profile/pfrazee.com/post/3kj2umze7zj2n" theme="light">
+  &#60;blockquote class="bluesky-post-fallback">
+    &#60;p dir="auto">angel mode&#60;/p>
+    &#38;mdash; Paul Frazee 🦋 (@pfrazee.com)
+    &#60;a href="https://bsky.app/profile/pfrazee.com/post/3kj2umze7zj2n">January 16, 2024&#60;/a>
+  &#60;/blockquote>
+&#60;/bluesky-post>
+&#60;script type="module" src="https://esm.run/bluesky-post-embed">&#60;/script></pre
+		>
+	</body>
+</html>

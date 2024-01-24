@@ -1,0 +1,75 @@
+:root {
+	--background-primary: #fafafa;
+	--background-secondary: #e5e5e5;
+	--text-primary: #000000;
+	--text-link: #1d4ed8;
+	--divider: #c8c8c8;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background-primary: #0a0a0a;
+		--background-secondary: #171717;
+		--text-primary: #ffffff;
+		--text-link: #60a5fa;
+		--divider: #404040;
+	}
+}
+
+html {
+	background: var(--background-primary);
+	color: var(--text-primary);
+	color-scheme: light dark;
+	font-size: 14px;
+	line-height: 1.25rem;
+}
+
+body {
+	margin: 24px auto;
+	padding: 0 16px;
+	max-width: 680px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin-block-start: 1.1rem;
+	margin-block-end: 1.1rem;
+}
+
+h1 {
+	font-size: 1.25rem;
+}
+h2 {
+	font-size: 1.125rem;
+}
+
+a {
+	color: var(--text-link);
+}
+
+pre {
+	border-radius: 4px;
+	background: var(--background-secondary);
+	padding: 8px;
+	overflow-x: auto;
+	font-size: 12px;
+}
+
+bluesky-post {
+	--font-size: 16px;
+	margin: 16px auto;
+}
+
+.bluesky-post-fallback {
+	margin: 16px 0;
+	border-left: 3px solid var(--divider);
+	padding: 4px 8px;
+}
+.bluesky-post-fallback p {
+	margin: 0 0 8px 0;
+}
