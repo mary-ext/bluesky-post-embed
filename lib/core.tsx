@@ -87,6 +87,7 @@ export const render = (resp: ThreadResponse, contextless: boolean): TrustedHTML 
 												Reply to{' '}
 												<a
 													href={`https://bsky.app/profile/${parent.author.handle}`}
+													target="_blank"
 													class="main-post__context-link"
 												>
 													{parent.author.displayName || '@' + parent.author.handle}
@@ -168,7 +169,7 @@ export const render = (resp: ThreadResponse, contextless: boolean): TrustedHTML 
 
 								<div class="reply-post__main">
 									<div class="reply-post__header">
-										<a href={author_url} class="reply-post__name-wrapper">
+										<a href={author_url} target="_blank" class="reply-post__name-wrapper">
 											<bdi class="reply-post__display-name-wrapper">
 												<span class="reply-post__display-name">{author.displayName}</span>
 											</bdi>
@@ -203,6 +204,7 @@ export const render = (resp: ThreadResponse, contextless: boolean): TrustedHTML 
 													Reply to{' '}
 													<a
 														href={`https://bsky.app/profile/${parent.author.handle}`}
+														target="_blank"
 														class="reply-post__context-link"
 													>
 														{parent.author.displayName || '@' + parent.author.handle}
