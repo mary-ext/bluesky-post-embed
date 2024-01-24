@@ -50,7 +50,10 @@ Adding a fallback content like above is heavily recommended for progressive enha
 ## Attributes
 
 - `src` **Required**  
-  A `bsky.app` URL of the post. If set to a handle-based URL, it'll attempt to resolve the handle.
+  A `bsky.app` URL of the post.  
+  Heavily recommended that the URL points to a DID instead of a handle, otherwise, it would have to
+  resolve the handle into DID first (and suffer from issues like users changing their handles, etc)  
+  An example of such URL would be: https://bsky.app/profile/did:plc:ragtjsm2j2vknwkz3zp4oxrd/post/3kj2umze7zj2n
 - `contextless` **Optional**  
   Prevent displaying of context when `src` points to a reply.
 - `theme` **Semi-required**  
