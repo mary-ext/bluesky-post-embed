@@ -28,7 +28,7 @@ import 'bluesky-post-embed';
 If you like, you can also rely on CDN services like JSDelivr.
 
 ```html
-<script type="module" src="https://esm.run/bluesky-post-embed"></script>
+<script type="module" src="https://esm.run/bluesky-post-embed@~0.1.0"></script>
 ```
 
 ## Basic usage
