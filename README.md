@@ -1,8 +1,11 @@
 # &lt;bluesky-post>
 
-A custom element for embedding Bluesky posts, connects to Bluesky's API directly with no middleman involved.
+A custom element for embedding Bluesky posts
 
 [Live demo](https://mary-ext.github.io/bluesky-post-embed)
+
+- **Lightweight**, the entire package + dependencies is only 24 KB (7 KB gzipped)
+- **Standalone**, no additional middleman involved, connects straight to Bluesky's API
 
 ## Installation
 
