@@ -61,6 +61,7 @@ p {
 }
 
 .icon {
+	flex-shrink: 0;
 	width: 1em;
 	height: 1em;
 }
@@ -146,13 +147,20 @@ p {
 	gap: 4px;
 	margin: 0 0 4px 0;
 	color: var(--text-secondary);
-}
-.main-post__context-link {
-	color: inherit;
-	text-decoration: none;
 
-	&:hover {
-		text-decoration: underline;
+	span {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 }
 .main-post__body {
@@ -317,13 +325,20 @@ p {
 	gap: 4px;
 	margin: 0 0 4px 0;
 	color: var(--text-secondary);
-}
-.reply-post__context-link {
-	color: inherit;
-	text-decoration: none;
 
-	&:hover {
-		text-decoration: underline;
+	span {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 }
 .reply-post__body {
