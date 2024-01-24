@@ -1,6 +1,6 @@
 # &lt;bluesky-post>
 
-A custom element for embedding Bluesky posts.
+A custom element for embedding Bluesky posts, connects to Bluesky's API directly with no middleman involved.
 
 [Live demo](https://mary-ext.github.io/bluesky-post-embed)
 
