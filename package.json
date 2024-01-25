@@ -15,7 +15,11 @@
 		"fmt": "prettier --cache --write .",
 		"prepublishOnly": "pnpm run build"
 	},
-	"main": "./dist/bluesky-post-embed.js",
+	"exports": {
+		".": "./dist/element.js",
+		"./core": "./dist/core.js",
+		"./style.css": "./dist/style.css"
+	},
 	"dependencies": {
 		"@externdefs/bluesky-client": "^0.3.11"
 	},

@@ -14,8 +14,10 @@ export default defineConfig({
 		minify: false,
 		cssMinify: true,
 		lib: {
-			entry: 'lib/index.ts',
-			fileName: `bluesky-post-embed`,
+			entry: {
+				core: 'lib/core.tsx',
+				element: 'lib/index.ts',
+			},
 			formats: ['es'],
 		},
 		rollupOptions: {

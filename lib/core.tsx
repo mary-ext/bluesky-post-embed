@@ -1,6 +1,10 @@
 import type { TrustedHTML } from '@intrnl/jsx-to-string';
 import type { Records, RefOf, ResponseOf } from '@externdefs/bluesky-client/atp-schema';
 
+import './style.css';
+
+import { Agent } from './utils/agent.ts';
+
 import { segment_richtext } from './utils/richtext/segmentize.ts';
 import type { Facet } from './utils/richtext/types.ts';
 
@@ -11,6 +15,59 @@ type ThreadResponse = ResponseOf<'app.bsky.feed.getPostThread'>;
 type PostData = RefOf<'app.bsky.feed.defs#postView'>;
 type PostRecord = Records['app.bsky.feed.post'];
 
+/// Fetch post
+const parse_src = (src: string): [actor: string, rkey: string] => {
+	const { protocol, host, pathname } = new URL(src);
+
+	if (protocol === 'https:' || protocol === 'http:') {
+		if (host === 'bsky.app' || host === 'staging.bsky.app') {
+			const match = /\/profile\/([^/]+)\/post\/([^/]+)\/?$/.exec(pathname);
+
+			if (match) {
+				return [match[1], match[2]];
+			}
+		}
+	}
+
+	throw new RangeError(`Invalid src: ${src}`);
+};
+
+export const get = async (
+	src: string,
+	contextless: boolean,
+	service: string = 'https://api.bsky.app',
+): Promise<ThreadResponse> => {
+	const agent = new Agent(service);
+
+	const [actor, rkey] = parse_src(src);
+
+	let did: string;
+	if (actor.startsWith('did:')) {
+		did = actor;
+	} else {
+		const response = await agent.get('com.atproto.identity.resolveHandle', {
+			params: {
+				handle: actor,
+			},
+		});
+
+		did = response.data.did;
+	}
+
+	const response = await agent.get('app.bsky.feed.getPostThread', {
+		params: {
+			uri: `at://${did}/app.bsky.feed.post/${rkey}`,
+			parentHeight: !contextless ? 2 : 1,
+			depth: 0,
+		},
+	});
+
+	const data = response.data;
+
+	return data;
+};
+
+/// Renderer
 const get_record_key = (uri: string) => {
 	const idx = uri.lastIndexOf('/');
 	return uri.slice(idx + 1);
