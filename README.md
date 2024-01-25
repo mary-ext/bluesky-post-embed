@@ -1,8 +1,6 @@
 # &lt;bluesky-post>
 
-A custom element for embedding Bluesky posts
-
-[Live demo](https://mary-ext.github.io/bluesky-post-embed)
+A custom element for embedding Bluesky posts. [Live demo](https://mary-ext.github.io/bluesky-post-embed)
 
 - **Lightweight**, the entire package + dependencies is only 24 KB (7 KB gzipped)
 - **Standalone**, no additional middleman involved, connects straight to Bluesky's API
@@ -31,7 +29,7 @@ If you like, you can also rely on CDN services like esm.sh or JSDelivr.
 <script type="module" src="https://esm.sh/bluesky-post-embed@~0.1.0"></script>
 ```
 
-## Basic usage
+## Usage
 
 Bluesky posts can be embedded like so:
 
@@ -47,7 +45,7 @@ Bluesky posts can be embedded like so:
 
 Adding a fallback content like above is heavily recommended for progressive enhancement.
 
-## Attributes
+### Attributes
 
 - `src` **Required**  
   A `bsky.app` URL of the post.  
@@ -62,9 +60,18 @@ Adding a fallback content like above is heavily recommended for progressive enha
 - `service-uri` **Optional**  
   URL to an AppView service, defaults to `https://api.bsky.app`
 
-## Events
+### Events
 
 - `loaded`  
   Fired when the embed has successfully loaded the post
 - `error`  
   Fired when the embed fails to load the post
+
+## SSR usage
+
+The core of this package is a static HTML renderer, so long as your framework of
+choice has the means to deal with declarative shadow DOM, then it's possible to
+generate a completely static embed without any JavaScript in the client.
+
+See [this repository](https://github.com/mary-ext/astro-bluesky-post) for an
+SSR demo made in Astro.
