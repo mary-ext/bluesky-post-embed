@@ -2,7 +2,7 @@
 	"type": "module",
 	"name": "bluesky-post-embed",
 	"description": "Custom element for embedding Bluesky posts",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"author": "externdefs",
 	"license": "MIT",
 	"repository": "https://github.com/mary-ext/bluesky-post-embed",
