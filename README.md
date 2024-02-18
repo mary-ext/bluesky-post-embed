@@ -58,7 +58,7 @@ Adding a fallback content like above is heavily recommended for progressive enha
   The color palette that it should use, either `light` or `dark`.  
   Set this to blank if you're setting a custom color palette.
 - `service-uri` **Optional**  
-  URL to an AppView service, defaults to `https://api.bsky.app`
+  URL to an AppView service, defaults to `https://public.api.bsky.app`
 
 ### Events
 

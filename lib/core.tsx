@@ -35,7 +35,7 @@ const parse_src = (src: string): [actor: string, rkey: string] => {
 export const get = async (
 	src: string,
 	contextless: boolean,
-	service: string = 'https://api.bsky.app',
+	service: string = 'https://public.api.bsky.app',
 ): Promise<ThreadResponse> => {
 	const agent = new Agent(service);
 
