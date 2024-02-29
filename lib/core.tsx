@@ -108,7 +108,7 @@ export const render = (resp: ThreadResponse, contextless: boolean): TrustedHTML 
 		);
 	}
 
-	const reply_icon = (
+	const reply_to_icon = (
 		<svg viewBox="0 0 24 24" class="icon">
 			<path fill="currentColor" d="M10 9V5l-7 7l7 7v-4.1c5 0 8.5 1.6 11 5.1c-1-5-4-10-11-11" />
 		</svg>
@@ -146,7 +146,7 @@ export const render = (resp: ThreadResponse, contextless: boolean): TrustedHTML 
 
 								{i === 0 && record.reply ? (
 									<p class="main-post__context">
-										{reply_icon}
+										{reply_to_icon}
 										{parent ? (
 											<span>
 												Reply to{' '}
@@ -192,7 +192,12 @@ export const render = (resp: ThreadResponse, contextless: boolean): TrustedHTML 
 
 									<span class="main-post__stats">
 										<span class="main-post__stat" title={`${post.replyCount || 0} replies`}>
-											{reply_icon}
+											<svg viewBox="0 0 24 24" class="icon">
+												<path
+													fill="currentColor"
+													d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2m0 14H6l-2 2V4h16z"
+												></path>
+											</svg>
 											<span>{format_compact(post.replyCount || 0)}</span>
 										</span>
 
@@ -200,7 +205,7 @@ export const render = (resp: ThreadResponse, contextless: boolean): TrustedHTML 
 											<svg viewBox="0 0 24 24" class="icon">
 												<path
 													fill="currentColor"
-													d="m11.645 20.91l-.007-.003l-.022-.012a15.247 15.247 0 0 1-.383-.218a25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25C2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052A5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25c0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17a15.247 15.247 0 0 1-.383.219l-.022.012l-.007.004l-.003.001a.752.752 0 0 1-.704 0z"
+													d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3C4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5C22 5.42 19.58 3 16.5 3m-4.4 15.55l-.1.1l-.1-.1C7.14 14.24 4 11.39 4 8.5C4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5c0 2.89-3.14 5.74-7.9 10.05"
 												></path>
 											</svg>
 											<span>{format_compact(post.likeCount || 0)}</span>
@@ -258,12 +263,7 @@ export const render = (resp: ThreadResponse, contextless: boolean): TrustedHTML 
 
 									{i === 0 && record.reply ? (
 										<p class="reply-post__context">
-											<svg viewBox="0 0 24 24" class="icon">
-												<path
-													fill="currentColor"
-													d="M10 9V5l-7 7l7 7v-4.1c5 0 8.5 1.6 11 5.1c-1-5-4-10-11-11"
-												/>
-											</svg>
+											{reply_to_icon}
 											{parent ? (
 												<span>
 													Reply to{' '}
