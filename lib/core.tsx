@@ -1,5 +1,13 @@
 import type { TrustedHTML } from '@intrnl/jsx-to-string';
-import type { Records, RefOf, ResponseOf } from '@externdefs/bluesky-client/atp-schema';
+import type {
+	AppBskyEmbedExternal,
+	AppBskyEmbedImages,
+	AppBskyEmbedRecord,
+	AppBskyFeedDefs,
+	AppBskyFeedGetPostThread,
+	AppBskyFeedPost,
+	AppBskyGraphDefs,
+} from '@externdefs/bluesky-client/atp-schema';
 
 import './style.css';
 
@@ -11,9 +19,9 @@ import type { Facet } from './utils/richtext/types.ts';
 import { format_abs_date, format_abs_date_time } from './utils/date.ts';
 import { format_compact } from './utils/number.ts';
 
-type ThreadResponse = ResponseOf<'app.bsky.feed.getPostThread'>;
-type PostData = RefOf<'app.bsky.feed.defs#postView'>;
-type PostRecord = Records['app.bsky.feed.post'];
+type ThreadResponse = AppBskyFeedGetPostThread.Output;
+type PostData = AppBskyFeedDefs.PostView;
+type PostRecord = AppBskyFeedPost.Record;
 
 /// Fetch post
 const parse_src = (src: string): [actor: string, rkey: string] => {
@@ -358,9 +366,9 @@ const RichTextRenderer = ({ text, facets }: { text: string; facets?: Facet[] }) 
 };
 
 /// <Embeds />
-type EmbeddedImage = RefOf<'app.bsky.embed.images#viewImage'>;
-type EmbeddedLink = RefOf<'app.bsky.embed.external#viewExternal'>;
-type EmbeddedRecord = RefOf<'app.bsky.embed.record#view'>['record'];
+type EmbeddedImage = AppBskyEmbedImages.ViewImage;
+type EmbeddedLink = AppBskyEmbedExternal.ViewExternal;
+type EmbeddedRecord = AppBskyEmbedRecord.View['record'];
 
 const Embeds = ({ embed, large }: { embed: NonNullable<PostData['embed']>; large: boolean }) => {
 	let images: EmbeddedImage[] | undefined;
@@ -562,7 +570,7 @@ const render_img = (img: EmbeddedImage, mode: RenderMode) => {
 };
 
 /// <EmbedPost />
-const EmbedPost = ({ post, large }: { post: RefOf<'app.bsky.embed.record#viewRecord'>; large: boolean }) => {
+const EmbedPost = ({ post, large }: { post: AppBskyEmbedRecord.ViewRecord; large: boolean }) => {
 	const author = post.author;
 
 	const record = post.value as PostRecord;
@@ -619,7 +627,7 @@ const EmbedPost = ({ post, large }: { post: RefOf<'app.bsky.embed.record#viewRec
 	);
 };
 
-const get_post_images = (post: RefOf<'app.bsky.embed.record#viewRecord'>) => {
+const get_post_images = (post: AppBskyEmbedRecord.ViewRecord) => {
 	const embeds = post.embeds;
 
 	if (embeds && embeds.length > 0) {
@@ -638,7 +646,7 @@ const get_post_images = (post: RefOf<'app.bsky.embed.record#viewRecord'>) => {
 };
 
 /// <EmbedFeed />
-const EmbedFeed = ({ feed }: { feed: RefOf<'app.bsky.feed.defs#generatorView'> }) => {
+const EmbedFeed = ({ feed }: { feed: AppBskyFeedDefs.GeneratorView }) => {
 	const creator = feed.creator;
 
 	const feed_url = `https://bsky.app/profile/${creator.handle}/feed/${get_record_key(feed.uri)}`;
@@ -658,7 +666,7 @@ const EmbedFeed = ({ feed }: { feed: RefOf<'app.bsky.feed.defs#generatorView'> }
 };
 
 /// <EmbedList />
-const EmbedList = ({ list }: { list: RefOf<'app.bsky.graph.defs#listView'> }) => {
+const EmbedList = ({ list }: { list: AppBskyGraphDefs.ListView }) => {
 	const creator = list.creator;
 
 	const raw_purpose = list.purpose;

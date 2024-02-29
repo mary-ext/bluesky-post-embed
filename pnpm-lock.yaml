@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@externdefs/bluesky-client':
-    specifier: ^0.3.14
-    version: 0.3.14
+    specifier: ^0.4.0
+    version: 0.4.0
 
 devDependencies:
   '@babel/core':
@@ -471,8 +471,8 @@ packages:
     dev: true
     optional: true
 
-  /@externdefs/bluesky-client@0.3.14:
-    resolution: {integrity: sha512-Y6tBURjHv//vQunxUFoRtkmidvuANZbdhP7jLlA2otnTBV6krfgmT+l/lNLo1BUvvo6jKlsrWiNxa+AUH2X9NQ==}
+  /@externdefs/bluesky-client@0.4.0:
+    resolution: {integrity: sha512-PAeGem21mdmMvnWZOV1uruRM104nqhdPJkW7G3j4F9buwODc4sEGY/HrFJj4bwTs3CNcufz+H6niv1aOb2L2rQ==}
     dev: false
 
   /@intrnl/jsx-to-string@0.1.6(@babel/core@7.24.0):
